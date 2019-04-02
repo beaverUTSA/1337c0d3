@@ -1,0 +1,21 @@
+class Solution {
+    public boolean isPalindrome(int x) {
+        int i = 0;
+        String val = Integer.toString(x);
+        if(val.length()%2 == 0){
+            while(i < val.length()) {
+                if(Character.getNumericValue(val.charAt(i)) != Character.getNumericValue(val.charAt(val.length() - 1 - i)))
+                    return false;
+                i++;
+            }
+            return true;
+        } else{
+            while(i < val.length()) {
+                if(Character.getNumericValue(val.charAt(i)) != Character.getNumericValue(val.charAt(val.length() - 1 - i)))
+                    return false;
+                i++;
+            }
+            return true;
+        }
+    }
+}
