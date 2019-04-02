@@ -1,0 +1,38 @@
+class Solution {
+    public int reverse(int x) {
+        int sign = 0;
+        String value = Integer.toString(x);
+        int length = value.length();
+        if(length == 1)
+            return x;
+        String rev = "";
+        for(int i = length-1; i >= 0; i--){
+            if(value.charAt(i) == '-'){
+                rev = value.charAt(i) + rev;
+            } else{
+            rev = rev + value.charAt(i);
+            }
+        }
+        
+        if(length > 11)
+            return 0;
+        if(length == 10){
+            if(Character.getNumericValue(rev.charAt(0)) > 2)
+                return 0;
+            if(Integer.valueOf(rev.substring(0,4)) > 21474)
+                return 0;
+            if(Integer.valueOf(rev.substring(5,10)) > 83648)
+                return 0;
+        }
+        if(length == 11){
+            if(Character.getNumericValue(rev.charAt(1)) > 2)
+                return 0;
+            if(Integer.valueOf(rev.substring(1,5)) > 21474)
+                return 0;
+            if(Integer.valueOf(rev.substring(6,11)) > 83648)
+                return 0;
+        }
+       
+        return Integer.valueOf(rev);
+    }
+}
