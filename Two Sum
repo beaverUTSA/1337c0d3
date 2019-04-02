@@ -1,0 +1,15 @@
+class Solution {
+    public int[] twoSum(int[] nums, int target) {
+        for(int k = 0; k < nums.length; k++){
+            int[] fun = nums;
+            for(int i = k; i < nums.length; i++){
+                fun[i] = fun[i] + fun[k];
+            }
+            for(int j = k; j < nums.length; j++){
+                if(fun[j] == target)
+                    return new int[]{k,j};
+            }
+        }
+        throw new IllegalArgumentException("No solution found");
+    }
+}
